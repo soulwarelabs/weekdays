@@ -1,2 +1,2 @@
-# weekdays
+# Weekdays
 Simple thread-based weblog
