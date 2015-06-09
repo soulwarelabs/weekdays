@@ -3,11 +3,13 @@ doctype html
 html(lang = "en",data-ng-app = "application")
 
   head
-  base(href = system.path)
-  script(src='resources/static/scripts/bundle.js')
+    base(href = system.path)
+    script(src = "resources/static/scripts/bundle.js")
+    link(rel = "stylesheet",href = "resources/static/styles/bundle.css)
 
   body
-    div(data-ui-view = "header") 
-    div(data-ui-view = "content")
+    .wrap
+      div(data-ui-view = "header") 
+      div(data-ui-view = "content")
     div(data-ui-view = "footer")
   
