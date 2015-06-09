@@ -1,10 +1,13 @@
 doctype html
 
-html(lang = "en")
+html(lang = "en",data-ng-app = "application")
 
   head
+  base(href = system.path)
+  script(src='resources/static/scripts/bundle.js')
 
   body
-
-    span.
-      Weekdays page
+    div(data-ui-view = "header") 
+    div(data-ui-view = "content")
+    div(data-ui-view = "footer")
+  

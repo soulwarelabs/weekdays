@@ -1,0 +1,12 @@
+header.header.floating
+  ul.logo
+    li.logo-item
+      span.image
+
+  ul.menu
+    li.menu-item(data-ng-repeat = 'thread in threads')
+      a(data-ui-sref = 'application.{{thread.id}}').
+        {{thread.title}}
+    li.menu-item
+      a(data-ui-sref = 'application.intouch').
+        In Touch
