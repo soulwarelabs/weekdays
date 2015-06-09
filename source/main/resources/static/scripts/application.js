@@ -16,7 +16,8 @@ application.config(function ($stateProvider, $urlRouterProvider) {
             url: '/',
             views: {
                 header: {
-                    templateUrl: 'resources/templates/header.html'
+                    templateUrl: 'resources/templates/header.html',
+                    controller: 'headerController'
                 },
                 footer: {
                     templateUrl: 'resources/templates/footer.html'
@@ -32,4 +33,12 @@ application.config(function ($stateProvider, $urlRouterProvider) {
                 }
             }
         });
+});
+
+application.controller('headerController', function ($scope, $http) {
+
+    $http.get('resources/models/threads.json')
+            .success(function (threads) {
+        $scope.threads = threads;
+    });
 });
