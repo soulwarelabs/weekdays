@@ -1,0 +1,21 @@
+{
+  "name": "soulwarelabs-weekdays",
+  "description": "Simple thread-based weblog",
+  "version": "1.0.0-SNAPSHOT",
+  "dependencies": {
+    "express": "~4.12.4"
+  },
+  "devDependencies": {
+    "gulp": "~3.6.2",
+    "rimraf": "~2.4.0"
+  },
+  "engines": {
+    "node": "~0.12.4"
+  },
+  "scripts": {
+    "build": "gulp --gulpfile ./build.js build",
+    "clean": "node gulp --gulpfile ./build.js clean",
+    "start": "node ./target/modules/application.js",
+    "postinstall": "npm run build"
+  }
+}
