@@ -19,8 +19,8 @@ express()
         title: 'Engineering'
       },
       {
-        id: 'sciense',
-        title: 'Sciense'
+        id: 'science',
+        title: 'Science'
       },
       {
         id: 'music',
