@@ -76,4 +76,13 @@ gulp.task('templates', ['clean'], function () {
   }).pipe(gulp.dest('./target/resources/templates'));
 });
 
+gulp.task('watch', function () {
+
+  gulp.watch(['./source/main/resources/static/images/*'], ['images']);
+
+  gulp.watch(['./source/main/resources/static/scripts/*.js', './source/main/resources/static/scripts/**/*.js'], ['scripts']);
+
+  gulp.watch(['./source/main/resources/static/styles/*.less', './source/main/resources/static/styles/**/*.less'], ['styles']);
+});
+
 gulp.task('default', ['build']);

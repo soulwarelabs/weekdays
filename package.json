@@ -2,13 +2,17 @@
   "name": "soulwarelabs-weekdays",
   "description": "Simple thread-based weblog",
   "version": "1.0.0-SNAPSHOT",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/soulwarelabs/weekdays.git"
+  },
+  "license": "MIT",
   "dependencies": {
     "express": "~4.12.4",
     "jade": "~1.10.0"
   },
   "devDependencies": {
     "gulp": "~3.6.2",
-    "gulp-rimraf": "*",
     "gulp-browserify": "~0.5.0",
     "gulp-concat": "~2.2.0",
     "gulp-less": "~3.0.3",
@@ -27,8 +31,9 @@
   },
   "scripts": {
     "build": "gulp --gulpfile ./build.js build",
-    "clean": "node gulp --gulpfile ./build.js clean",
+    "clean": "gulp --gulpfile ./build.js clean",
     "start": "node ./target/modules/application.js",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "watch": "gulp --gulpfile ./build.js watch"
   }
 }
