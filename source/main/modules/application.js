@@ -1,5 +1,8 @@
 var express = require('express');
 
+var modelRouter = require('./routers/models'),
+    templateRouter = require('./routers/templates');
+
 express()
 
   .use('/resources/static', express.static('./target/resources/static'))
@@ -8,34 +11,9 @@ express()
 
   .set('views', './target/resources/templates')
 
-  .get('/resources/templates/:id(*).(htm|html)', function (request, response) {
-    response.render(request.params.id);
-  })
+  .use('/resources/templates', templateRouter)
 
-  .get('/resources/models/threads.json', function (request, response) {
-    response.json([
-      {
-        id: 'engineering',
-        title: 'Engineering'
-      },
-      {
-        id: 'science',
-        title: 'Science'
-      },
-      {
-        id: 'music',
-        title: 'Music'
-      },
-      {
-        id: 'places',
-        title: 'Places'
-      },
-      {
-        id: 'beyond',
-        title: 'Beyond'
-      }
-    ]);
-  })
+  .use('/resources/models', modelRouter)
 
   .get('/(*)', function (request, response) {
     response.render("index", {
