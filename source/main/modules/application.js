@@ -1,5 +1,7 @@
 var express = require('express');
 
+var configuration = require('./configuration');
+
 var modelRouter = require('./routers/models'),
     templateRouter = require('./routers/templates');
 
@@ -21,9 +23,9 @@ express()
         title: 'Weekdays'
       },
       system: {
-        path: '/'
+        path: configuration.contextPath
       }
     });
   })
 
-  .listen(process.env.PORT || 5000);
+  .listen(process.env.PORT || configuration.defaultPort);
