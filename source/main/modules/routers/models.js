@@ -1,5 +1,7 @@
 var express = require('express');
 
+var topLevelItems = require('./top-level-items');
+
 module.exports = express.Router()
 
     .get('/threads.json', function (request, response) {
@@ -27,22 +29,10 @@ module.exports = express.Router()
       ]);
     })
 
-    .get('/thread/:id/items.json', function (request, response) {
-      response.json([
-        {
-          id: 'item1',
-          threadId: request.params.id,
-          title: 'Item 1'
-        },
-        {
-          id: 'item2',
-          threadId: request.params.id,
-          title: 'Item 2'
-        },
-        {
-          id: 'item3',
-          threadId: request.params.id,
-          title: 'Item 3'
-        }
-      ]);
+    .get('/thread/:id.json', function (request, response) {
+      response.json(topLevelItems.get(request.params.id));
     })
+
+    .all('/(*)', function (request, response) {
+      response.status(404).send('Requested resource not found!');
+    });
