@@ -25,6 +25,51 @@ application.config(function ($stateProvider, $urlRouterProvider) {
             }
         })
 
+        .state('application.engineering', {
+            url: 'engineering',
+            views: {
+                'content@': {
+                    templateUrl: 'resources/templates/engineering.html'
+                }
+            }
+        })
+
+        .state('application.science', {
+            url: 'science',
+            views: {
+                'content@': {
+                    templateUrl: 'resources/templates/science.html'
+                }
+            }
+        })
+
+        .state('application.music', {
+            url: 'music',
+            views: {
+                'content@': {
+                    templateUrl: 'resources/templates/music.html'
+                }
+            }
+        })
+
+        .state('application.places', {
+            url: 'places',
+            views: {
+                'content@': {
+                    templateUrl: 'resources/templates/places.html'
+                }
+            }
+        })
+
+        .state('application.beyond', {
+            url: 'beyond',
+            views: {
+                'content@': {
+                    templateUrl: 'resources/templates/beyond.html'
+                }
+            }
+        })       
+
         .state('application.intouch', {
             url: 'intouch',
             views: {
