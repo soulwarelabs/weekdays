@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    watch = require('gulp-watch'),
     browserify = require('gulp-browserify'),
     concat = require('gulp-concat'),
     sourcemaps = require('gulp-sourcemaps'),
@@ -78,11 +79,15 @@ gulp.task('templates', ['clean'], function () {
 
 gulp.task('watch', function () {
 
-  gulp.watch(['./source/main/resources/static/images/*'], ['images']);
+  watch(['./source/main/resources/static/images/**/*'], function () {
+    gulp.start('images');
+  });
 
-  gulp.watch(['./source/main/resources/static/scripts/*.js', './source/main/resources/static/scripts/**/*.js'], ['scripts']);
-
-  gulp.watch(['./source/main/resources/static/styles/*.less', './source/main/resources/static/styles/**/*.less'], ['styles']);
+//   gulp.watch(['./source/main/resources/static/images/*', './source/main/resources/static/images/**/*'], ['images']);
+//
+//   gulp.watch(['./source/main/resources/static/scripts/*.js', './source/main/resources/static/scripts/**/*.js'], ['scripts']);
+//
+//   gulp.watch(['./source/main/resources/static/styles/*.less', './source/main/resources/static/styles/**/*.less'], ['styles']);
 });
 
 gulp.task('default', ['build']);

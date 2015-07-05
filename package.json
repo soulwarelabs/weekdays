@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "gulp": "~3.6.2",
+    "gulp-watch": "*",
     "gulp-browserify": "~0.5.0",
     "gulp-concat": "~2.2.0",
     "gulp-less": "~3.0.3",
