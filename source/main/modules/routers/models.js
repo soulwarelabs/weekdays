@@ -1,10 +1,34 @@
 var express = require('express');
+    mongoose = require('mongoose');
+
+mongoose.connect(process.env.mongodb);
+
+var Thread = mongoose.model('thread', new mongoose.Schema({
+  id: {
+    type: String,
+    unique: true
+  },
+  title: String
+}));
 
 var topLevelItems = require('./top-level-items');
+
+/*
+mongodb://guest:guest@ds053978.mongolab.com:53978/heroku_r84ptgfg
+*/
 
 module.exports = express.Router()
 
     .get('/threads.json', function (request, response) {
+
+      Thread.find({}).exec(function (error, threads) {
+        if (error) {
+          throw error;
+        }
+        response.json(threads);
+      });
+
+      /*
       response.json([
         {
           id: 'engineering',
@@ -26,7 +50,7 @@ module.exports = express.Router()
           id: 'beyond',
           title: 'Beyond'
         }
-      ]);
+      ]);*/
     })
 
     .get('/thread/:id.json', function (request, response) {
